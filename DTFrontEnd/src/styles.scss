@@ -1,0 +1,23 @@
+// Your variable overrides
+$font-size-base: 1rem;
+$line-height-base: 1;
+
+body {
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.footer {
+  padding: 0px;
+}

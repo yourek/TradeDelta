@@ -1,0 +1,5 @@
+/.vs/*
+*.csproj.user
+*.DotSettings.user
+/DTFrontEnd/node_modules/*
+**/TESTS-*.xml
