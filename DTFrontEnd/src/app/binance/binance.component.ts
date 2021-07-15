@@ -16,7 +16,7 @@ export class BinanceComponent implements OnInit {
   selectedSymbol: string = 'ETHBTC';
 
   constructor(private BinanceService: BinanceService) {}
-
+  
   ngOnInit(): void {}
 
   apiFetchTime() {
@@ -27,8 +27,9 @@ export class BinanceComponent implements OnInit {
 
   apiFetchExchangeInfo() {
     this.BinanceService.fetchExchangeInfo().subscribe((response) => {
-      console.log(response);
+      //console.log(response);
       this.binanceSymbolsAvailable = response.symbols;
+      //this.binanceSymbolsAvailable.filter(x => x.status == "TRADING")
     });
   }
 

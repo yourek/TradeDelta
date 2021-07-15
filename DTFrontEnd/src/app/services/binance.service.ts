@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class BinanceService {
-  rootUrl = 'https://api.binance.com/api/v3/time';
+  timeUrl = 'https://api.binance.com/api/v3/time';
   exchangeInfoUrl = 'https://api.binance.com/api/v3/exchangeInfo';
-  avgPrice = 'https://api.binance.com/api/v3/avgPrice';
+  avgPriceUrl = 'https://api.binance.com/api/v3/avgPrice';
 
   constructor(private http: HttpClient) {}
 
@@ -17,11 +17,11 @@ export class BinanceService {
   }
 
   fetchTime() {
-    return this.http.get<any>(this.rootUrl);
+    return this.http.get<any>(this.timeUrl);
   }
 
   fetchAvgPrice(symbol: string) {
-    return this.http.get<any>(this.avgPrice, {
+    return this.http.get<any>(this.avgPriceUrl, {
       params: { symbol: symbol },
     });
   }
