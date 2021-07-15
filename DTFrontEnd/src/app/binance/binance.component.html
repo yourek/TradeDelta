@@ -1,0 +1,38 @@
+<div class="container withMargin">
+  <div class = "row">
+    <h1>Binance Component</h1>
+  </div>
+  <div class = "row">
+    <div class = "col">
+      <button type="button" class="btn btn-primary" (click)="apiFetchTime()">Call Api: Time</button>
+    </div>
+    <div class = "col">
+      <button type="button" class="btn btn-primary" (click)="apiFetchExchangeInfo()">Call Api: Exchange Info</button>
+    </div>
+    <div class = "col">
+      <button type="button" class="btn btn-primary" (click)="apiFetchAvgPrice(selectedSymbol)">Call Api: Avg Price</button>
+    </div>
+  </div>
+</div>
+<div class="container withMargin">
+  <div class = "row">
+    <div class="col-6">
+      <ul class = "list-group">
+        <li class = "list-group-item" *ngFor = "let symbol of binanceSymbolsAvailable">{{symbol.symbol + ' ' + symbol.status}}</li>
+      </ul>
+    </div>
+    <div class = "col-6">
+
+      <div class = "row withMargin">
+        <input [(ngModel)] = "selectedSymbol">
+      </div>
+      <div class = "row withMargin">
+
+      </div>
+      <p [(ngModel)] = "this.binanceAvgPrice">
+        Selected symbol: {{this.selectedSymbol}} => Current price: {{this.binanceAvgPrice.price}}
+      </p>
+    </div>
+
+  </div> 
+</div>

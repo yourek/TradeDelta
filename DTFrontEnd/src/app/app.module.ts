@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BinanceComponent } from './binance/binance.component';
 
 @NgModule({
-  declarations: [AppComponent], // komponenty, dyrektywy i konweretry (pipes) które wchodzą w skłdd tego modułu
+  declarations: [AppComponent, BinanceComponent], // komponenty, dyrektywy i konweretry (pipes) które wchodzą w skłdd tego modułu
   imports: [
     BrowserModule,
     AppRoutingModule,
