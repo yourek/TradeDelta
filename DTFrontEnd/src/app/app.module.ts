@@ -8,9 +8,10 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BinanceComponent } from './binance/binance.component';
 import { KucoinComponent } from './kucoin/kucoin.component';
+import { BlockchainComponent } from './blockchain/blockchain.component';
 
 @NgModule({
-  declarations: [AppComponent, BinanceComponent, KucoinComponent], // komponenty, dyrektywy i konweretry (pipes) które wchodzą w skłdd tego modułu
+  declarations: [AppComponent, BinanceComponent, KucoinComponent, BlockchainComponent], // komponenty, dyrektywy i konweretry (pipes) które wchodzą w skłdd tego modułu
   imports: [
     BrowserModule,
     AppRoutingModule,
