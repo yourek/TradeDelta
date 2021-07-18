@@ -1,1 +1,37 @@
-<p>kucoin works!</p>
+<div class="container withMargin">
+    <div class = "row">
+        <h1>Kucoin Data</h1>
+    </div>
+    <div class = "row">
+        <div class = "col">
+            <button type="button" class="btn btn-primary" (click)="apiGetAllSymbols()">Call Api: All Symbols</button>
+        </div>
+        <div class = "col">
+            <button type="button" class="btn btn-primary" (click)="apiGetOrderBook(selectedSymbol)">Call Api: Order Book</button>
+        </div>
+    </div>
+    </div>
+    <div class="container withMargin">
+    <div class = "row">
+        <div class="col-3">
+        <ul class = "list-group">
+            <li class = "list-group-item" *ngFor = "let symbol of kucoinSymbolsAvailable">{{symbol.symbol + ' ' + symbol.enableTrading}}</li>
+        </ul>
+        </div>
+        <div class = "col-3">
+
+        <div class = "row withMargin">
+            <input [(ngModel)] = "selectedSymbol">
+        </div>
+        <div class = "row withMargin">
+
+        </div>
+        <p [(ngModel)] = "this.kucoinOrderBook">
+            Selected symbol: {{this.selectedSymbol}}
+            <br>Bids: {{this.kucoinOrderBook.bids}}
+            <br>Asks: {{this.kucoinOrderBook.asks}}
+        </p>
+        </div>
+
+    </div> 
+</div>  
