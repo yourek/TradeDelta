@@ -6,10 +6,11 @@ import { BlockchainComponent } from './blockchain/blockchain.component';
 import { KucoinComponent } from './kucoin/kucoin.component';
 
 const routes: Routes = [
-  { path: '*', redirectTo: 'binance' },
+  { path: '', redirectTo: '/binance', pathMatch: 'full' },
   { path: 'binance', component: BinanceComponent },
-  { path: 'kucoin', component: KucoinComponent},
-  { path: 'blockchain', component: BlockchainComponent}
+  { path: 'kucoin', component: KucoinComponent },
+  { path: 'blockchain', component: BlockchainComponent },
+  { path: '*', component: BinanceComponent },
 ];
 
 @NgModule({
