@@ -15,13 +15,126 @@ body {
 }
 body {
   margin: 0;
+  padding: 0;
+  background-color: #ecf0f1;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.navigation-bar {
+  position: fixed;
+  display: flex;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 64px;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  align-items: center;
+  box-shadow: 0px 15px 10px -15px rgba(17, 17, 17, 0.3);
+  z-index: 20;
+  background-color: #f8f9fa !important;
+}
+
+.navigation-bar a {
+  color: #212529;
+}
+
+.root {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.root-content {
+  position: relative;
+  display: flex;
+}
+
+.left-pane {
+  position: fixed;
+  padding-top: 80px;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  width: 240px;
+  height: 100%;
+  //overflow-wrap: anywhere;
+  border-right: 2px solid rgba(133, 133, 133, 0.2);
+
+  //display: flex;
+
+  background-color: #f8f9fa;
+}
+
+.left-pane a {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.left-pane a {
+  transition: border-bottom 0.1s;
+}
+
+.link-text {
+  flex-grow: 1;
+}
+
+.svg-icon {
+  margin-right: 8px;
+}
+
+.left-pane-link {
+  cursor: pointer;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 48px;
+  padding: 0px 16px;
+  //box-shadow: rgb(31 199 212) 4px 0px 0px inset;
+  flex-shrink: 0;
+}
+
+.left-pane-link:hover {
+  box-shadow: #3498db 4px 0px 0px inset;
+  background-color: rgba(191, 191, 191, 0.1);
+}
+
+.content {
+  margin-top: 64px;
+  margin-left: 240px;
+  background-color: #ecf0f1;
+  z-index: 3;
+  flex-grow: 1;
+  //width: 100px; //calc(100%-240px);
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(184, 173, 210);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: rgb(55 47 71) 0px 0px 5px inset;
+  border-radius: 10px;
 }
 
 .footer {
   padding: 0px;
+  z-index: 5;
 }
 
 .withMargin {
   margin-top: 10px;
+}
+
+.content-section {
+  height: 100%;
+  background-color: blue;
 }

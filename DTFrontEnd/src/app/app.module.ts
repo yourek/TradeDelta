@@ -17,7 +17,7 @@ import { KucoinComponent } from './kucoin/kucoin.component';
     CommonModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule,
+    //BrowserAnimationsModule,
   ], // inne moduły wykorzystywane w tym module
   providers: [
     //{ provide: HTTP_INTERCEPTORS, useClass: null, multi: true },
