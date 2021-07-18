@@ -15,12 +15,14 @@ export class AppComponent {
   ngOnInit() {
     this.resizeContentToFullWidth();
 
-    const timerRoot = timer(1000, 10000);
+    const timerRoot = timer(1000, 30000000);
     timerRoot.subscribe(() => {
       //  Tutaj będziemy triggerować kodzik apki - requesty co 10 sekund aktualnie
       this.lastRefresh = new Date();
       console.log('refreshed!');
       console.log(this.lastRefresh);
+
+      // metoda trigger api
     });
   }
 

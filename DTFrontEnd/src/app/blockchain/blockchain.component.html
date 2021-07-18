@@ -16,12 +16,12 @@
       <div class = "col-6">
   
         <div class = "row withMargin">
-          <input [(ngModel)] = "selectedAddress">
+          <input [(ngModel)] = "selectedAddress" ngDefaultControl>
         </div>
         <div class = "row withMargin">
   
         </div>
-        <p [(ngModel)] = "this.currentBalance">
+        <p [(ngModel)] = "this.currentBalance" ngDefaultControl>
           Selected symbol: {{this.selectedAddress}} : Current balance: {{this.currentBalance}}
           Selected symbol: {{this.selectedAddress}} : Last transactions:}
         </p>
