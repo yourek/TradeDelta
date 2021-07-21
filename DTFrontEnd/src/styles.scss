@@ -62,8 +62,7 @@ body {
   border-right: 2px solid rgba(133, 133, 133, 0.2);
 
   //display: flex;
-
-  background-color: #f8f9fa;
+  background-color: #faf9fa;
 }
 
 .left-pane a {
@@ -98,6 +97,11 @@ body {
 }
 
 .left-pane-link:hover {
+  box-shadow: #3498db 4px 0px 0px inset;
+  background-color: rgba(191, 191, 191, 0.1);
+}
+
+.active {
   box-shadow: #3498db 4px 0px 0px inset;
   background-color: rgba(191, 191, 191, 0.1);
 }
