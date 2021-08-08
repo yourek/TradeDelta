@@ -21,12 +21,12 @@
         <div class = "col-3">
 
         <div class = "row withMargin">
-            <input [(ngModel)] = "selectedSymbol" ngDefaultControl>
+            <input [(ngModel)] = "selectedSymbol">
         </div>
         <div class = "row withMargin">
 
         </div>
-        <p [(ngModel)] = "this.kucoinOrderBook" ngDefaultControl>
+        <p [(ngModel)] = "this.kucoinOrderBook">
             Selected symbol: {{this.selectedSymbol}}
             <br>Bids: {{this.kucoinOrderBook.bids}}
             <br>Asks: {{this.kucoinOrderBook.asks}}
