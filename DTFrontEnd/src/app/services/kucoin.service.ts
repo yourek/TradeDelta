@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const BASE_PATH = "https://api.kucoin.com/api/v1/".replace(/\/+$/, "");
+const BASE_PATH = "https://api.kucoin.com/api/v1/";
 
 @Injectable({
   providedIn: 'root'

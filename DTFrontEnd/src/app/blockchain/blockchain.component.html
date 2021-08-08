@@ -13,23 +13,25 @@
   </div>
   <div class="container withMargin">
     <div class = "row">
-      <div class = "col-6">
+      <div class = "col-10">
   
         <div class = "row withMargin">
-          <input [(ngModel)] = "selectedAddress">
+          <input [(ngModel)] = "selectedAddress" ngDefaultControl>
         </div>
         <div class = "row withMargin">
   
         </div>
-        <p [(ngModel)] = "this.currentBalance">
-          Selected symbol: {{this.selectedAddress}} : Current balance: {{this.currentBalance}}
-          Selected symbol: {{this.selectedAddress}} : Last transactions:}
+        <p [(ngModel)] = "this.currentBalance" ngDefaultControl>
+          <li> Selected symbol: {{this.selectedAddress}}</li>
+          <li> Current balance: {{this.currentBalance}}</li>
+          <li> addressData.final_balance: {{this.addressData.final_balance}}</li>
+          <li> lastTrans.hash: {{this.lastTrans}}</li>
         </p>
-        <div class="col-6">
+        <!-- <div class="col-6">
             <ul class = "list-group">
                 <li class = "list-group-item" *ngFor = "let trans of lastTransactions">{{trans}}</li>
             </ul>
-        </div>
+        </div> -->
     </div>
     </div> 
   </div>
