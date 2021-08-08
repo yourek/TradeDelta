@@ -24,6 +24,7 @@
     "angular-material-icons": "^0.7.1",
     "bootstrap": "^4.6.0",
     "jquery": "^3.5.1",
+    "ngx-cookie": "^5.0.2",
     "powerbi-client": "^2.17.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
