@@ -6,9 +6,9 @@
       <div class = "col">
         <button type="button" class="btn btn-primary" (click)="getCurrentAccountBalance(selectedAddress)">Call Api: Balance</button>
       </div>
-      <div class = "col">
+      <!-- <div class = "col">
         <button type="button" class="btn btn-primary" (click)="getCurrentLastTransactions(selectedAddress)">Call Api: Last transactions</button>
-      </div>
+      </div> -->
     </div>
   </div>
   <div class="container withMargin">
@@ -21,13 +21,14 @@
         <div class = "row withMargin">
   
         </div>
-        <p [(ngModel)] = "this.currentBalance" ngDefaultControl>
-          Selected symbol: {{this.selectedAddress}} : Current balance: {{this.currentBalance}}
-          Selected symbol: {{this.selectedAddress}} : Last transactions:}
+        <p [(ngModel)] = "this.lastTransactions" ngDefaultControl>
+          <br>Selected symbol: {{this.selectedAddress}}
+          <br>Last transactions:
         </p>
+        <p [(ngModel)] = "this.btcDivider" ngDefaultControl></p>
         <div class="col-6">
             <ul class = "list-group">
-                <li class = "list-group-item" *ngFor = "let trans of lastTransactions">{{trans}}</li>
+                <li class = "list-group-item" *ngFor = "let trans of lastTransactions">{{trans.result / btcDivider}}</li>
             </ul>
         </div>
     </div>

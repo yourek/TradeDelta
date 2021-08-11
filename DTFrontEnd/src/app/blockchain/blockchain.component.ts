@@ -10,10 +10,11 @@ import { CookiesService } from '../services/cookies.service';
   styleUrls: ['./blockchain.component.css'],
 })
 export class BlockchainComponent implements OnInit {
-  currentBalance: number = 0;
-  lastTransactions: number[] = [];
+  addressData: any;
+  lastTransactions: any[] = [];
   selectedAddress: string = '1P5ZEDWTKTFGxQjZphgWPQUpe554WKDfHQ';
   btcDivider: number = 100000000;
+  limit: number = 5;
 
   statusOk = ['200'];
   statusNotOk = ['404', '238'];
@@ -42,7 +43,7 @@ export class BlockchainComponent implements OnInit {
         this.pauseRequired
       )
     ) {
-      this.BlockchainService.getCurrentAccountData(account).subscribe(
+      this.BlockchainService.getCurrentAccountData(account, this.limit).subscribe(
         (response) => {
           //console.log(response);
           this.cookiesService.updateCookie(
@@ -51,8 +52,11 @@ export class BlockchainComponent implements OnInit {
             this.statusKey,
             this.timeStampKey
           );
-          var body = response.body;
-          this.currentBalance = body.final_balance / this.btcDivider;
+          this.addressData = response.body;
+          this.lastTransactions = this.addressData.txs;
+          // this.lastTransactions.forEach(element => {
+          //   console.log(element.result);
+          // })
         }
       );
     }
@@ -69,7 +73,7 @@ export class BlockchainComponent implements OnInit {
         this.pauseRequired
       )
     ) {
-      this.BlockchainService.getCurrentAccountData(account).subscribe(
+      this.BlockchainService.getCurrentAccountData(account, this.limit).subscribe(
         (response) => {
           this.cookiesService.updateCookie(
             response,
