@@ -2,7 +2,7 @@ import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { CookieService } from 'ngx-cookie';
 import { BlockchainService } from '../services/blockchain.service';
-import { CookiesService } from '../services/cookies.service';
+import { AppCookiesService } from '../services/cookies.service';
 
 @Component({
   selector: 'app-blockchain',
@@ -10,6 +10,7 @@ import { CookiesService } from '../services/cookies.service';
   styleUrls: ['./blockchain.component.css'],
 })
 export class BlockchainComponent implements OnInit {
+  lastTransDateNumber: number = 0;
   addressData: any;
   lastTransactions: any[] = [];
   selectedAddress: string = '1P5ZEDWTKTFGxQjZphgWPQUpe554WKDfHQ';
@@ -22,17 +23,18 @@ export class BlockchainComponent implements OnInit {
 
   statusKey = `${this.element.nativeElement.tagName}-Status`;
   timeStampKey = `${this.element.nativeElement.tagName}-TimeStamp`;
+  lastTransDate = `${this.element.nativeElement.tagName}-LastTransDate`;
 
   constructor(
     private BlockchainService: BlockchainService,
     private cookie: CookieService,
-    private cookiesService: CookiesService, //
+    private cookiesService: AppCookiesService, //
     private element: ElementRef
   ) {}
 
   ngOnInit(): void {}
 
-  getCurrentAccountBalance(account: string) {
+  GetCurrentAccountBalance(account: string) {
     if (
       this.cookiesService.StatusValidator(
         this.cookie,
@@ -43,20 +45,25 @@ export class BlockchainComponent implements OnInit {
         this.pauseRequired
       )
     ) {
-      this.BlockchainService.getCurrentAccountData(account, this.limit).subscribe(
+      this.BlockchainService.GetCurrentAccountData(account, this.limit).subscribe(
         (response) => {
           //console.log(response);
-          this.cookiesService.updateCookie(
+          this.cookiesService.UpdateCookie(
             response,
             this.cookie,
             this.statusKey,
             this.timeStampKey
           );
+
+          this.lastTransDateNumber = Number(this.cookiesService.GetLastTransDateBlockchain(this.cookie, this.lastTransDate));
+          
           this.addressData = response.body;
           this.lastTransactions = this.addressData.txs;
           // this.lastTransactions.forEach(element => {
           //   console.log(element.result);
           // })
+
+          this.cookiesService.UpdateLastTransDateBlockchain(this.lastTransDate, this.cookie, this.lastTransactions[0]);
         }
       );
     }
@@ -73,9 +80,9 @@ export class BlockchainComponent implements OnInit {
         this.pauseRequired
       )
     ) {
-      this.BlockchainService.getCurrentAccountData(account, this.limit).subscribe(
+      this.BlockchainService.GetCurrentAccountData(account, this.limit).subscribe(
         (response) => {
-          this.cookiesService.updateCookie(
+          this.cookiesService.UpdateCookie(
             response,
             this.cookie,
             this.statusKey,

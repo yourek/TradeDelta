@@ -4,10 +4,10 @@
     </div>
     <div class = "row">
       <div class = "col">
-        <button type="button" class="btn btn-primary" (click)="getCurrentAccountBalance(selectedAddress)">Call Api: Balance</button>
+        <button type="button" class="btn btn-primary" (click)="GetCurrentAccountBalance(selectedAddress)">Call Api: Balance</button>
       </div>
       <!-- <div class = "col">
-        <button type="button" class="btn btn-primary" (click)="getCurrentLastTransactions(selectedAddress)">Call Api: Last transactions</button>
+        <button type="button" class="btn btn-primary" (click)="GetCurrentLastTransactions(selectedAddress)">Call Api: Last transactions</button>
       </div> -->
     </div>
   </div>
@@ -26,6 +26,9 @@
           <br>Last transactions:
         </p>
         <p [(ngModel)] = "this.btcDivider" ngDefaultControl></p>
+        <p [(ngModel)] = "this.lastTransDateNumber" ngDefaultControl>
+          <br>Last transaction date: {{this.lastTransDateNumber}}
+        </p>
         <div class="col-6">
             <ul class = "list-group">
                 <li class = "list-group-item" *ngFor = "let trans of lastTransactions">{{trans.result / btcDivider}}</li>

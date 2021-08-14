@@ -5,7 +5,7 @@ import { CookieService } from 'ngx-cookie';
 @Injectable({
   providedIn: 'root',
 })
-export class CookiesService {
+export class AppCookiesService {
   constructor() {}
 
   StatusValidator(
@@ -36,7 +36,7 @@ export class CookiesService {
     return false;
   }
 
-  updateCookie(
+  UpdateCookie(
     response: HttpResponse<any>,
     cookie: CookieService,
     statusKey: string,
@@ -45,5 +45,19 @@ export class CookiesService {
     var timeStamp = Date.now();
     cookie.put(statusKey, response.status.toString());
     cookie.put(timeStampKey, timeStamp.toString());
+  }
+
+  UpdateLastTransDateBlockchain(lastTransDate: string, cookie: CookieService, lastTrans: any)
+  {
+    cookie.put(lastTransDate, lastTrans.time.toString());
+  }
+
+  GetLastTransDateBlockchain(cookie: CookieService, lastTransDate: string)
+  {
+    var isFirstTime = !cookie.hasKey(lastTransDate);
+    if (isFirstTime)
+      return 0;
+    else
+      return cookie.get(lastTransDate);
   }
 }

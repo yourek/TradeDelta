@@ -11,7 +11,7 @@ const BASE_PATH = 'https://blockchain.info/rawaddr/';
 export class BlockchainService {
   constructor(private http: HttpClient) {}
 
-  getCurrentAccountData(account: string, limit: number) {
+  GetCurrentAccountData(account: string, limit: number) {
     return this.http.get<any>(BASE_PATH + account + '?limit=' + limit, { observe: 'response' });
   }
 }
