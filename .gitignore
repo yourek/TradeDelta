@@ -2,4 +2,5 @@
 *.csproj.user
 *.DotSettings.user
 /DTFrontEnd/node_modules/*
+/DTBackEnd/node_modules/*
 **/TESTS-*.xml
